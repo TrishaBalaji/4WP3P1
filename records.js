@@ -42,8 +42,31 @@ async function table2()
     await db.run("INSERT INTO Products VALUES (?,?,?,?,?,?,?)", ['Ms.Vickies','4.99','667', '770','0.00', 'med', 'Lays']);
     await db.run("INSERT INTO Products VALUES (?,?,?,?,?,?,?)", ['Ruffles','3.99','489', '600','0.20', 'low', 'Ms.Vickies']);
 
-    let results = await db.all("SELECT rowid as id, * FROM Users");
+    let results = await db.all("SELECT rowid as id, * FROM Products");
     console.log(results);
 }
 
 table2()
+
+async function table3()
+{
+    const db = await sqlite.open({
+        filename: "table3.db",
+        driver: sqlite3.Database
+    });
+
+    await db.exec("DROP TABLE IF EXISTS Stores");
+    await db.exec("CREATE TABLE Stores (name TEXT, customers_served INT, products_stocked INT, competitors TEXT, financial_position BOOL, product_shipments INT)");
+
+    await db.run("INSERT INTO Stores VALUES (?,?,?,?,?,?)", ['No Frills','1000','650', 'Freshco','good', '700']);
+    await db.run("INSERT INTO Stores VALUES (?,?,?,?,?,?)", ['Food Basics','2000','900', 'Loblaws','bad', '950']);
+    await db.run("INSERT INTO Stores VALUES (?,?,?,?,?,?)", ['Loblaws','3000','850', 'Food Basics','bad', '900']);
+    await db.run("INSERT INTO Stores VALUES (?,?,?,?,?,?)", ['Sobeys','2500','780', 'Longos','good', '820']);
+    await db.run("INSERT INTO Stores VALUES (?,?,?,?,?,?)", ['Longos','1500','667', 'Sobeys','good', '900']);
+    await db.run("INSERT INTO Stores VALUES (?,?,?,?,?,?)", ['Freshco','2000','489', 'No Frills','bad', '900']);
+
+    let results = await db.all("SELECT rowid as id, * FROM Stores");
+    console.log(results);
+}
+
+table3()
