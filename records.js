@@ -24,3 +24,26 @@ async function table1()
 }
 
 table1()
+
+async function table2()
+{
+    const db = await sqlite.open({
+        filename: "table2.db",
+        driver: sqlite3.Database
+    });
+
+    await db.exec("DROP TABLE IF EXISTS Products");
+    await db.exec("CREATE TABLE Products (item TEXT, price REAL, amount_sold INT, amount_stocked INT, discounts TEXT, popularity TEXT, competitors TEXT)");
+
+    await db.run("INSERT INTO Products VALUES (?,?,?,?,?,?,?)", ['Pringles','5.99','650', '700','0.50', 'med', 'Lays']);
+    await db.run("INSERT INTO Products VALUES (?,?,?,?,?,?,?)", ['Lays','3.99','900', '985','0.60', 'high', 'Pringles']);
+    await db.run("INSERT INTO Products VALUES (?,?,?,?,?,?,?)", ['Doritos','4.50','850', '900','0.30', 'high', 'Pringles']);
+    await db.run("INSERT INTO Products VALUES (?,?,?,?,?,?,?)", ['Cheetos','6.25','780', '878','0.00', 'low', 'Lays']);
+    await db.run("INSERT INTO Products VALUES (?,?,?,?,?,?,?)", ['Ms.Vickies','4.99','667', '770','0.00', 'med', 'Lays']);
+    await db.run("INSERT INTO Products VALUES (?,?,?,?,?,?,?)", ['Ruffles','3.99','489', '600','0.20', 'low', 'Ms.Vickies']);
+
+    let results = await db.all("SELECT rowid as id, * FROM Users");
+    console.log(results);
+}
+
+table2()
