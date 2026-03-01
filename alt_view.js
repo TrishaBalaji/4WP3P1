@@ -18,7 +18,7 @@ app.get('/mypage',function(req, res) {
 
     }
 
-    res.render('mypage', TPL);
+    res.render('mypage', TPL); //module not found error given when running server 
 })
 
 app.get(/^(.+)$/, function(req, res){
