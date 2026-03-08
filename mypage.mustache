@@ -2,9 +2,32 @@
 <!DOCTYPE html> 
 <html>
     <head>
+        <nav class="topnav">
+            <a class="active" href="#items">Item Records</a>
+            <a href="#dash">Dashboards</a>
+            <a href="#calc">Calculator</a>
+            <a href="#restock">Restocker</a>
+        </nav>
         <title>{{ title}} </title>
         <style>
             td {border: 1px solid black;}
+            .topnav {
+                overflow: hidden;
+                background-color: #333;
+                }
+
+            .topnav a {
+                float: center;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+            .topnav a:hover {
+                background-color: #7FFFD4;
+                color: white;
+            } 
         </style>
     </head>
     <body>
