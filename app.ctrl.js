@@ -8,3 +8,6 @@ Model.makeConnection();
 app.engine("mustache", mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', __dirname + '/views');
+
+app.engine('html', mustacheExpress()); 
+app.set('view engine', 'html');
