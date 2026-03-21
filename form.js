@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() { 
-const sold = document.getElementById('bags_sold')
+const sold = document.getElementById('bags_sold') //received a ReferenceError: document is not defined, when working with mustache 
 const ship = document.getElementById('bags_ship')
 const form = document.getElementById('form')
 
