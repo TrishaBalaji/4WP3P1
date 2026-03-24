@@ -4,8 +4,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script defer src="../alt_view.js"></script>
-        <script src ="../form.js"></script>
         <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -55,29 +53,18 @@
             <div class="col-2">
                     <div class="box"></div>
             </div>
-                <div class="col-8">
+                 <div class="col-8">
                      <div class="middlebox">
-                        <p>{{ title}} </p>
-                         <p>Message: {{ message }}</p> 
+                        <p>{{title}} </p>
+                         <p>{{message}}</p> 
                      </div> 
+
                      <div class="middlebox"> 
-                      <title> {{ title }}</title>
-                      <h2> How much should I stock?</h2>
-                     <form id="form" action="/" method="GET">
-                        <div>
-              <label for="bags_sold"> Please enter bags sold this month</label>
-               <input id="bags_sold" name="bags_sold" type="integer" required>
-              </div>
-              <div>
-               <label for="bags_ship">Please enter bags per shipment</label>
-               <input id="bags_ship" name="bags_ship" type="integer">
+            <!--add validate form counterpart from script--> 
   </div>
   <button type="submit">Submit</button>
 </form>
 </div>
-                </div>
-                <div class="col-2">
-                     <div class="box"></div>
                 </div>
         </div>
     </div>
