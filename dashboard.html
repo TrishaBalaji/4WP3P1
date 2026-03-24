@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <h1>Product Dashboard</h1>
+    <p>Welcome, {{username}}</p>
+  </header>
+
+  <!-- Summary Cards -->
+  <section class="cards">
+    <div class="card">
+      <h3>Total Products</h3>
+      <p>{{totalProducts}}</p>
+    </div>
+
+    <div class="card">
+      <h3>Average Price</h3>
+      <p>${{avgPrice}}</p>
+    </div>
+
+    <div class="card">
+      <h3>Most Popular Item</h3>
+      <p>{{topProduct}}</p>
+    </div>
+
+    <div class="card">
+      <h3>Highest Discount</h3>
+      <p>{{maxDiscount}}</p>
+    </div>
+  </section>
+
+  <!-- Product Table -->
+  <section class="table-section">
+    <h2>All Products</h2>
+
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Sold</th>
+        <th>Stocked</th>
+        <th>Discount</th>
+        <th>Popularity</th>
+        <th>Competitors</th>
+      </tr>
+
+      {{#products}}
+      <tr>
+        <td>{{item}}</td>
+        <td>${{price}}</td>
+        <td>{{amount_sold}}</td>
+        <td>{{amount_stocked}}</td>
+        <td>{{discounts}}</td>
+        <td>{{popularity}}</td>
+        <td>{{competitors}}</td>
+      </tr>
+      {{/products}}
+    </table>
+  </section>
+
+  <footer>
+    <a href="/product?username={{username}}">Back to Editor</a>
+    <a href="/mypage">Log Out</a>
+  </footer>
+
+</body>
+</html>
