@@ -3,7 +3,7 @@ const app = express();
 const mustacheExpress = require('mustache-express');
 
 const bodyParser = require("body-parser");
-const {usersDB, productsDB, storesDB} = require("./database"); // Import the database connection
+const {usersDB, productsDB, storesDB, initializeDatabases} = require("./database"); // Import the database connection
 
 app.engine("html", mustacheExpress());
 app.set("view engine", "html");
@@ -55,7 +55,7 @@ app.post("/mypage", (req, res) => {
   });
 });
 
-pp.get("/product", (req, res) => {
+app.get("/product", (req, res) => {
   const username = req.query.username;
 
   if (!username) {
@@ -252,7 +252,11 @@ app.get(/^(.+)$/, function(req, res){
     res.sendFile(__dirname + req.params[0]);
 });
 
-var server = app.listen(8081, function()
-{
+initializeDatabases().then(() => {
+  app.listen(8081, function () {
     console.log("server listening...");
-})
+  });
+}).catch((err) => {
+  console.error("Database initialization failed:", err);
+});
+
